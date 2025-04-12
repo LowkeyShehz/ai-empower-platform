@@ -11,7 +11,6 @@ import CustomAgent from "./pages/CustomAgent";
 import Settings from "./pages/Settings";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
-import Chat from "./pages/Chat";
 
 const queryClient = new QueryClient();
 
@@ -25,7 +24,6 @@ const App = () => (
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/agents" element={<Agents />} />
-            <Route path="/chat" element={<Chat />} />
             <Route path="/custom-agent" element={<CustomAgent />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/about" element={<About />} />
