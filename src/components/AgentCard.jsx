@@ -18,6 +18,7 @@ const AgentCard = ({
   const isFeatured = variant === 'featured';
   
   const handleStartConversation = () => {
+    console.log("Navigating to chat page with agent:", name);
     navigate('/chat', { 
       state: { 
         agent: {
