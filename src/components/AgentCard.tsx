@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -23,6 +24,16 @@ const AgentCard = ({
   variant = 'default'
 }: AgentCardProps) => {
   const isFeatured = variant === 'featured';
+  const navigate = useNavigate();
+  
+  const handleStartConversation = () => {
+    // Navigate to the chat page with the agent information
+    navigate('/chat', { 
+      state: { 
+        agent: { name, description, icon, tags } 
+      } 
+    });
+  };
   
   return (
     <Card className={cn(
@@ -58,7 +69,11 @@ const AgentCard = ({
           </div>
         </CardContent>
         <CardFooter className="flex justify-end">
-          <Button variant={isFeatured ? "default" : "outline"} size="sm">
+          <Button 
+            variant={isFeatured ? "default" : "outline"} 
+            size="sm"
+            onClick={handleStartConversation}
+          >
             Start Conversation
           </Button>
         </CardFooter>
